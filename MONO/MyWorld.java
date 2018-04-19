@@ -26,7 +26,7 @@ public class MyWorld extends World
         addObject(new blueChanger("BLUE"), 25, 250);
         addObject(new greenChanger("GREEN"), 120, 370);
         addObject(new blueChanger("BLUE"), 100, 410);
-        addObject(new blueChanger("BLUE"), 240, 550);
+        addObject(new blueChanger("BLUE"), 250, 530);
         addObject(new redChanger("RED"), 200, 250);
         addObject(new redChanger("RED"), 600, 365);
         addObject(new greenChanger("GREEN"), 400, 400);
@@ -35,9 +35,13 @@ public class MyWorld extends World
         addObject(new GreenPlatform(50, 50), 500, 600);
         addObject(new GreenPlatform(50, 50), 600, 500);
         addObject(new BluePlatform(50, 50), 25, 400);
-        addObject(new RedPlatform(50, 50), 200, 600);
+        addObject(new RedPlatform(100, 50), 200, 600);
         addObject(new BluePlatform(50, 50), 350, 550);
         addObject(new BluePlatform(50, 50), 100, 500);
+        
+        addObject(new BluePlatform(800, 50), 800, 600);
+        addObject(new RedPlatform(800, 50), 800, 600);
+        addObject(new GreenPlatform(800, 50), 0, 600);
     }
     
     public Character getCharacter(){

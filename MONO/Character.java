@@ -14,6 +14,7 @@ public class Character extends Actor
     
     public void act() 
     {
+        setImage("rboystanding.png");
         checkChange();
         checkFall();
         if(Greenfoot.isKeyDown("d")){
@@ -22,13 +23,19 @@ public class Character extends Actor
         if(Greenfoot.isKeyDown("a")){
             move(-5);
         }
-        if ("space".equals(Greenfoot.getKey()) && onGround()) // jump key detected
+        if ("space".equals(Greenfoot.getKey()) && onGround())
             {
-                vSpeed = -15; // add jump speed
-                setLocation(getX(), getY()+vSpeed); // leave ground
+                vSpeed = -15;
+                setLocation(getX(), getY()+vSpeed);
             }
+        
     }
     
+    public void leftAnimation(){
+        setImage("lboy1.png");
+        Greenfoot.delay(1);
+        setImage("lboy2.png");
+    }
     public int checkChange(){
         if(isTouching(blueChanger.class)){
             color = BluePlatform.class;
@@ -81,7 +88,7 @@ public class Character extends Actor
     {
         int spriteHeight = getImage().getHeight();
         int lookForGround = (int)(spriteHeight/2) + 5;
-        
+        //boolean ground = isTouching(color);
         Actor ground = getOneObjectAtOffset(0, lookForGround, color);
         if(ground == null){
             return false;

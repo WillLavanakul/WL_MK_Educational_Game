@@ -16,7 +16,7 @@ public class GreenPlatform extends Actor
         height = cHeight;
         GreenfootImage img = new GreenfootImage(width, height);
         img.setColor(Color.GREEN);
-        img.fill();
+        img.fillRect(width - (width-8), 0, width-8, height);
         setImage(img);
     }
     public void hide() 
