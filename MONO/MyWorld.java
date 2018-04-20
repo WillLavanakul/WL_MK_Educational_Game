@@ -39,9 +39,7 @@ public class MyWorld extends World
         addObject(new BluePlatform(50, 50), 350, 550);
         addObject(new BluePlatform(50, 50), 100, 500);
         
-        addObject(new BluePlatform(800, 50), 800, 600);
-        addObject(new RedPlatform(800, 50), 800, 600);
-        addObject(new GreenPlatform(800, 50), 0, 600);
+        
     }
     
     public Character getCharacter(){

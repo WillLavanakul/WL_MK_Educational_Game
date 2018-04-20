@@ -11,17 +11,35 @@ public class Character extends Actor
     private int vSpeed = 0;
     private Class color = BluePlatform.class;
     private String strColor = "Blue";
+    private int animationCount = 0;
+    private GreenfootImage rboy1 = new GreenfootImage("rboy1.png");
+    private GreenfootImage rboy2 = new GreenfootImage("rboy2.png");
+    private GreenfootImage rboystanding = new GreenfootImage("rboystanding.png");
+    private GreenfootImage lboy1 = new GreenfootImage("lboy1.png");
+    private GreenfootImage lboy2 = new GreenfootImage("lboy2.png");
+    private GreenfootImage lboystanding = new GreenfootImage("lboystanding.png");
+    
     
     public void act() 
     {
-        setImage("rboystanding.png");
+        animationCount++;
         checkChange();
         checkFall();
         if(Greenfoot.isKeyDown("d")){
+            rightAnimation();
             move(5);
         }
         if(Greenfoot.isKeyDown("a")){
+            leftAnimation();
             move(-5);
+        }
+        if(!Greenfoot.isKeyDown("d") && !Greenfoot.isKeyDown("a")) {
+            if(getImage().equals(rboy1) || getImage().equals(rboy2) || getImage().equals(rboystanding)){
+                setImage("rboystanding.png");
+            }
+            if(getImage().equals(lboy1) || getImage().equals(lboy2) || getImage().equals(lboystanding)){
+                setImage("lboystanding.png");
+            }
         }
         if ("space".equals(Greenfoot.getKey()) && onGround())
             {
@@ -32,9 +50,33 @@ public class Character extends Actor
     }
     
     public void leftAnimation(){
-        setImage("lboy1.png");
-        Greenfoot.delay(1);
-        setImage("lboy2.png");
+        if(animationCount == 5){
+            setImage(lboy1);
+        }
+        else if(animationCount == 10){    
+            setImage(lboystanding);
+        }
+        else if(animationCount == 15){    
+            setImage(lboy2);
+        }
+        else if(animationCount > 15){    
+            animationCount = 0;
+        }
+    }
+    
+    public void rightAnimation(){
+        if(animationCount == 5){
+            setImage(rboy1);
+        }
+        else if(animationCount == 10){    
+            setImage(rboystanding);
+        }
+        else if(animationCount == 15){    
+            setImage(rboy2);
+        }
+        else if(animationCount > 15){    
+            animationCount = 0;
+        }
     }
     public int checkChange(){
         if(isTouching(blueChanger.class)){
