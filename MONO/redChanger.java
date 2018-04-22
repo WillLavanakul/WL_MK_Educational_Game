@@ -11,7 +11,7 @@ public class redChanger extends Actor
     public redChanger(String text){
         GreenfootImage img = new GreenfootImage(30, 30);
         img.setColor(Color.RED);
-        img.drawString(text, 0, 15);
+        img.fillOval(0, 0, 30, 30);
         setImage(img);
     }
     /**

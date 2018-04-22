@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 public class MyWorld extends World
 {
+    
     Character char1 = new Character();
     /**
      * 
