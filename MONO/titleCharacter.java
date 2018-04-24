@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Character here.
+ * Write a description of class titleCharacter here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Character extends Actor
+public class titleCharacter extends Actor
 {
     private int vSpeed = 0;
     private Class color = BluePlatform.class;
@@ -15,58 +15,28 @@ public class Character extends Actor
     private GreenfootImage rboy1 = new GreenfootImage("rboy1.png");
     private GreenfootImage rboy2 = new GreenfootImage("rboy2.png");
     private GreenfootImage rboystanding = new GreenfootImage("rboystanding.png");
-    private GreenfootImage lboy1 = new GreenfootImage("lboy1.png");
-    private GreenfootImage lboy2 = new GreenfootImage("lboy2.png");
-    private GreenfootImage lboystanding = new GreenfootImage("lboystanding.png");
+    
+    public titleCharacter(){
+        rboy1.scale(50, 82);
+        rboy2.scale(50, 82);
+        rboystanding.scale(50, 82);
+    }
+
     
     public void act() 
     {
         animationCount++;
-        checkChange();
-        checkFall();
-        if(Greenfoot.isKeyDown("d")){
-            rightAnimation();
-            move(5);
-            
-        }
-        if(Greenfoot.isKeyDown("a")){
-            leftAnimation();
-            move(-5);
-        }
-        if(!Greenfoot.isKeyDown("d") && !Greenfoot.isKeyDown("a")) {
-            if(getImage().equals(rboy1) || getImage().equals(rboy2) || getImage().equals(rboystanding)){
-                setImage("rboystanding.png");
-            }
-            if(getImage().equals(lboy1) || getImage().equals(lboy2) || getImage().equals(lboystanding)){
-                setImage("lboystanding.png");
-            }
-        }
-        if ("space".equals(Greenfoot.getKey()) && onGround())
-            {
-                vSpeed = -15;
-                setLocation(getX(), getY()+vSpeed);
-            }
-        onBottom();
+        rightAnimation();
+        move(5);
+        onRight();
     }
     
-    public void leftAnimation(){
-        if(animationCount == 3){
-            setImage(lboy1);
-        }
-        else if(animationCount == 6){    
-            setImage(lboystanding);
-        }
-        else if(animationCount == 9){    
-            setImage(lboy2);
-        }
-        else if(animationCount > 10){    
-            animationCount = 0;
-        }
-    }
+   
     
-    public void onBottom(){
-        if (getY() >= 590){
-            setLocation(10, 0);
+    
+    public void onRight(){
+        if (getX() >= 790){
+            setLocation(0, 510);
         }
     }
     

@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     
     Character char1 = new Character();
+    titleCharacter titleChar = new titleCharacter();
     /**
      * 
      * Constructor for objects of class MyWorld.
@@ -18,12 +19,16 @@ public class MyWorld extends World
     public MyWorld()
     {    
         super(800, 600, 1); 
-        addObject(char1, 10, 0);
-        level1();
+        title();
     }
     
+    public void title(){
+        setBackground("title.png");
+        addObject(titleChar, 10, 510);
+    }
     
     public void level1(){
+        addObject(char1, 10, 0);
         addObject(new blueChanger("BLUE"), 25, 100);
         addObject(new blueChanger("BLUE"), 100, 410);
         addObject(new greenChanger("GREEN"), 120, 370);
