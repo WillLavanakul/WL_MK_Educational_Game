@@ -12,7 +12,7 @@ public class BluePlatform extends Actor
     public BluePlatform(int width, int height){
         GreenfootImage img = new GreenfootImage(width, height);
         img.setColor(Color.BLUE);
-        img.fillRect(width - (width-8), 0, width-8, height);
+        img.fillRect(0, 0, width-14, height);
         setImage(img);
     }
     public void hide() 

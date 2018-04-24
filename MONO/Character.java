@@ -19,7 +19,6 @@ public class Character extends Actor
     private GreenfootImage lboy2 = new GreenfootImage("lboy2.png");
     private GreenfootImage lboystanding = new GreenfootImage("lboystanding.png");
     
-    
     public void act() 
     {
         animationCount++;
@@ -46,38 +45,45 @@ public class Character extends Actor
                 vSpeed = -15;
                 setLocation(getX(), getY()+vSpeed);
             }
-        
+        onBottom();
     }
     
     public void leftAnimation(){
-        if(animationCount == 5){
+        if(animationCount == 3){
             setImage(lboy1);
         }
-        else if(animationCount == 10){    
+        else if(animationCount == 6){    
             setImage(lboystanding);
         }
-        else if(animationCount == 15){    
+        else if(animationCount == 9){    
             setImage(lboy2);
         }
-        else if(animationCount > 15){    
+        else if(animationCount > 10){    
             animationCount = 0;
+        }
+    }
+    
+    public void onBottom(){
+        if (getY() >= 590){
+            setLocation(10, 0);
         }
     }
     
     public void rightAnimation(){
-        if(animationCount == 5){
+        if(animationCount == 3){
             setImage(rboy1);
         }
-        else if(animationCount == 10){    
+        else if(animationCount == 6){    
             setImage(rboystanding);
         }
-        else if(animationCount == 15){    
+        else if(animationCount == 9){    
             setImage(rboy2);
         }
-        else if(animationCount > 15){    
+        else if(animationCount >= 10){    
             animationCount = 0;
         }
     }
+    
     public int checkChange(){
         if(isTouching(blueChanger.class)){
             color = BluePlatform.class;

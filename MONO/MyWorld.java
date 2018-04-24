@@ -18,30 +18,38 @@ public class MyWorld extends World
     public MyWorld()
     {    
         super(800, 600, 1); 
-        addObject(char1, 0, 0);
+        addObject(char1, 10, 0);
         level1();
     }
     
     
     public void level1(){
-        addObject(new blueChanger("BLUE"), 25, 250);
-        addObject(new greenChanger("GREEN"), 120, 370);
+        addObject(new blueChanger("BLUE"), 25, 100);
         addObject(new blueChanger("BLUE"), 100, 410);
-        addObject(new blueChanger("BLUE"), 250, 530);
+        addObject(new greenChanger("GREEN"), 120, 370);
         addObject(new redChanger("RED"), 200, 250);
-        addObject(new redChanger("RED"), 600, 365);
+        addObject(new blueChanger("BLUE"), 250, 500);
         addObject(new greenChanger("GREEN"), 400, 400);
-        addObject(new RedPlatform(50, 50), 500, 480);
-        addObject(new GreenPlatform(50, 50), 200, 400);
-        addObject(new GreenPlatform(50, 50), 500, 600);
-        addObject(new GreenPlatform(50, 50), 600, 500);
-        addObject(new BluePlatform(50, 50), 25, 400);
-        addObject(new RedPlatform(100, 50), 200, 600);
-        addObject(new BluePlatform(50, 50), 350, 550);
-        addObject(new BluePlatform(50, 50), 100, 500);
+        addObject(new redChanger("RED"), 600, 365);
         
+        //Red platforms (left to right)
+        addObject(new RedPlatform(114, 50), 200, 600);
+        addObject(new RedPlatform(64, 50), 500, 480);
+        
+        //Green platforms (left to right)
+        addObject(new GreenPlatform(64, 50), 200, 400);
+        addObject(new GreenPlatform(64, 50), 500, 600);
+        addObject(new GreenPlatform(64, 50), 600, 500);
+        
+        //Blue platforms (left to right)
+        addObject(new BluePlatform(64, 50), 25, 400);
+        addObject(new BluePlatform(64, 50), 100, 500);
+        addObject(new BluePlatform(64, 50), 350, 550);
+        
+        addObject(new triangle(), 500, 425);
         
     }
+    
     
     public Character getCharacter(){
         return char1;
