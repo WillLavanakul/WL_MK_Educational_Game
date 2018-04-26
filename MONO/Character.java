@@ -25,6 +25,7 @@ public class Character extends Actor
     {
         animationCount++;
         checkChange();
+        
         checkFall();
         if(Greenfoot.isKeyDown("d")){
             rightAnimation();
@@ -165,32 +166,7 @@ public class Character extends Actor
     public void endTimer(){
         timer++;
         if(timer == 180){
-            switch (level) {
-                case 1: ((MyWorld)getWorld()).level3();
-                        level++;
-                        timer = 0;
-                        break;
-                case 2: ((MyWorld)getWorld()).level3();
-                        level++;
-                        timer = 0;
-                        break;
-                case 3: ((MyWorld)getWorld()).level4();
-                        level++;
-                        timer = 0;
-                        break;
-                case 4: ((MyWorld)getWorld()).level5();
-                        level++;
-                        timer = 0;
-                        break;
-                case 5: ((MyWorld)getWorld()).level5();
-                        level++;
-                        timer = 0;
-                        break;
-                case 6: ((MyWorld)getWorld()).level5();
-                        level++;
-                        timer = 0;
-                        break;
-            }
+           ((MyWorld)getWorld()).nextLevel();
         }
     }
 }

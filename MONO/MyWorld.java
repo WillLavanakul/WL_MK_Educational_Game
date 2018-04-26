@@ -11,7 +11,7 @@ public class MyWorld extends World
     
     Character char1 = new Character();
     titleCharacter titleChar = new titleCharacter();
-    private int pastTitle = 1;
+    private int level = 1;
     BluePlatform titlePlatform = new BluePlatform(900, 50);
     public MyWorld()
     {    
@@ -21,18 +21,36 @@ public class MyWorld extends World
     
     
     public void act(){
-        if (pastTitle != 3 && "space".equals(Greenfoot.getKey())){
-            switch (pastTitle) {
+        if (level < 3 && "space".equals(Greenfoot.getKey())){
+            switch (level) {
                 case 1: instructions();
                         break;
                 case 2: level1();
+                        level++;
                         break;
             }
         }
     }
     
+    public void nextLevel(){
+        switch (level) {
+                case 3: level2();
+                        level++;
+                        break;
+                case 4: level3();
+                        level++;
+                        break;
+                case 5: level4();
+                        level++;
+                        break;
+                case 6: level5();
+                        level++;
+                        break;
+            }
+    }
+    
     public void title(){
-        pastTitle = 1;
+        level = 1;
         setBackground("title.png");
         addObject((titlePlatform), 400, 560);
         hideBluePlatform();
@@ -41,12 +59,11 @@ public class MyWorld extends World
     
     public void instructions(){
         removeObject(titleChar);
-        pastTitle = 2;
+        level = 2;
         setBackground("instructions.png");
     }
     
     public void level1(){
-        pastTitle = 3;
         removeObjects(getObjects(null));
         setBackground("bricks3.jpg");
         addObject(new Character(), 10, 0);
