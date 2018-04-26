@@ -12,6 +12,7 @@ public class titleCharacter extends Actor
     private Class color = BluePlatform.class;
     private String strColor = "Blue";
     private int animationCount = 0;
+    private int jumpCount = 0;
     private GreenfootImage rboy1 = new GreenfootImage("rboy1.png");
     private GreenfootImage rboy2 = new GreenfootImage("rboy2.png");
     private GreenfootImage rboystanding = new GreenfootImage("rboystanding.png");
@@ -26,17 +27,24 @@ public class titleCharacter extends Actor
     public void act() 
     {
         animationCount++;
+        jumpCount++;
         rightAnimation();
         move(5);
         onRight();
+        checkFall();
+        if(jumpCount == 30 || jumpCount == 120){
+            vSpeed = -18;
+            setLocation(getX(), getY()+vSpeed);
+        }
+        else if(jumpCount >= 200){
+            jumpCount = 0;
+        }
     }
     
-   
-    
-    
+
     public void onRight(){
         if (getX() >= 790){
-            setLocation(0, 510);
+            setLocation(0, getY());
         }
     }
     

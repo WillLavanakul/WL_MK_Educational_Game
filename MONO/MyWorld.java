@@ -11,23 +11,39 @@ public class MyWorld extends World
     
     Character char1 = new Character();
     titleCharacter titleChar = new titleCharacter();
-    /**
-     * 
-     * Constructor for objects of class MyWorld.
-     * 
-     */
+    private int pastTitle = 1;
     public MyWorld()
     {    
         super(800, 600, 1); 
         title();
     }
     
+    public void act(){
+        if ("space".equals(Greenfoot.getKey())){
+            switch (pastTitle) {
+                case 1: instructions();
+                case 2: level1();
+            }
+        }
+        
+    }
+    
     public void title(){
         setBackground("title.png");
-        addObject(titleChar, 10, 510);
+        addObject(new BluePlatform(900, 50), 400, 560);
+        hideBluePlatform();
+        addObject(titleChar, 10, 500);
+    }
+    
+    public void instructions(){
+        removeObject(titleChar);
+        pastTitle = 2;
+        setBackground("instructions.png");
     }
     
     public void level1(){
+        pastTitle = 3;
+        setBackground("bricks3.jpg");
         addObject(char1, 10, 0);
         addObject(new blueChanger("BLUE"), 25, 100);
         addObject(new blueChanger("BLUE"), 100, 410);
