@@ -18,6 +18,8 @@ public class Character extends Actor
     private GreenfootImage lboy1 = new GreenfootImage("lboy1.png");
     private GreenfootImage lboy2 = new GreenfootImage("lboy2.png");
     private GreenfootImage lboystanding = new GreenfootImage("lboystanding.png");
+    private int timer = 0;
+    private int level = 1;
     
     public void act() 
     {
@@ -47,6 +49,9 @@ public class Character extends Actor
                 setLocation(getX(), getY()+vSpeed);
             }
         onBottom();
+        if(isTouching(triangle.class)){
+            endTimer();
+        }
     }
     
     public void leftAnimation(){
@@ -157,4 +162,35 @@ public class Character extends Actor
         }
     }
     
+    public void endTimer(){
+        timer++;
+        if(timer == 180){
+            switch (level) {
+                case 1: ((MyWorld)getWorld()).level3();
+                        level++;
+                        timer = 0;
+                        break;
+                case 2: ((MyWorld)getWorld()).level3();
+                        level++;
+                        timer = 0;
+                        break;
+                case 3: ((MyWorld)getWorld()).level4();
+                        level++;
+                        timer = 0;
+                        break;
+                case 4: ((MyWorld)getWorld()).level5();
+                        level++;
+                        timer = 0;
+                        break;
+                case 5: ((MyWorld)getWorld()).level5();
+                        level++;
+                        timer = 0;
+                        break;
+                case 6: ((MyWorld)getWorld()).level5();
+                        level++;
+                        timer = 0;
+                        break;
+            }
+        }
+    }
 }
