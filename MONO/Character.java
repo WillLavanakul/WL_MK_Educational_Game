@@ -133,9 +133,9 @@ public class Character extends Actor
         return strColor;
     }
     
-    public void fall()
-    {
+    public void fall(){
         vSpeed++;
+        
         setLocation(getX(), getY() + vSpeed);
     }
     
@@ -155,7 +155,14 @@ public class Character extends Actor
     
     public void checkFall()
     {
+        int spriteHeight = getImage().getHeight();
+        int lookForGround = (int)(spriteHeight/2) + 5;
+        //boolean ground = isTouching(color);
+        Actor ground = getOneObjectAtOffset(0, lookForGround, color);
         if(onGround()){
+            if(getY() + (int)(spriteHeight/2) > ground.getY() - (int)(ground.getImage().getHeight()/2)){
+                setLocation(getX(), getY() - 5);
+            }
             vSpeed = 0;
         }
         else{
