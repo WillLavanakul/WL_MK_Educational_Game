@@ -15,7 +15,6 @@ public class MyWorld extends World
     BluePlatform titlePlatform = new BluePlatform(900, 50);
     public MyWorld()
     {    
-        
         super(800, 600, 1); 
         title();
     }
@@ -111,26 +110,28 @@ public class MyWorld extends World
     public void level3(){
         removeObjects(getObjects(null));
         addObject(new Character(), 20, 0);
+        
+        //changers left to right
         addObject(new blueChanger("BLUE"), 0, 0);
+        addObject(new greenChanger("GREEN"), 90, 525);
+        addObject(new blueChanger("BLUE"), 180, 450);
+        addObject(new redChanger("RED"), 285, 375);
+        addObject(new greenChanger("GREEN"), 370, 300);
+        addObject(new redChanger("RED"), 650, 150);
+        
+        //blue platforms left to right
+        addObject(new BluePlatform(84, 30), 250, 450);
         addObject(new BluePlatform(114, 30), 25, 600);
 
-        addObject(new greenChanger("GREEN"), 90, 525);
+        //green platforms left to right
         addObject(new GreenPlatform(64, 30), 125, 525);
-
-        addObject(new blueChanger("BLUE"), 180, 450);
-        addObject(new BluePlatform(84, 30), 250, 450);
-
-        addObject(new redChanger("RED"), 285, 375);
-        addObject(new RedPlatform(84, 30), 325, 375);
-
-        addObject(new greenChanger("GREEN"), 370, 300);
         addObject(new GreenPlatform(304, 30), 550, 300);
 
-        
-        addObject(new redChanger("RED"), 650, 150);
-
-        
+        //red platforms left to right
         addObject(new RedPlatform(84, 30), 707, 575);
+        addObject(new RedPlatform(84, 30), 325, 375);
+        
+        
         addObject(new triangle(), 700, 525);
     }
     
@@ -138,6 +139,8 @@ public class MyWorld extends World
     public void level4(){
         removeObjects(getObjects(null));
         addObject(new Character(), 20, 0);
+        
+        //changers left to right
         addObject(new blueChanger("BLUE"), 0, 0);
         addObject(new redChanger("RED"), 90, 170);
         addObject(new greenChanger("GREEN"), 250, 220);
@@ -146,14 +149,17 @@ public class MyWorld extends World
         addObject(new redChanger("RED"), 660, 400);
         addObject(new greenChanger("GREEN"), 730, 470);
         
+        //blue platforms left to right
         addObject(new BluePlatform(114, 30), 25, 200);
         addObject(new BluePlatform(114, 30), 475, 400);
         addObject(new BluePlatform(114, 30), 475, 570);
         
-        addObject(new RedPlatform(514, 30), 125, 300);
+        //Red platforms left to right
         addObject(new RedPlatform(114, 30), 700, 570);
         addObject(new RedPlatform(114, 30), 700, 430);
+        addObject(new RedPlatform(514, 30), 125, 300);
         
+        //green platforms left to right
         addObject(new GreenPlatform(114, 30), 325, 250);
         addObject(new GreenPlatform(114, 30), 700, 500);
         
@@ -162,8 +168,11 @@ public class MyWorld extends World
     }
     
     public void level5(){
+        //removes objects of previous level
         removeObjects(getObjects(null));
         removeObject(titlePlatform);
+        
+        //changes left to right
         addObject(new Character(), 10, 0);
         addObject(new blueChanger("BLUE"), 25, 100);
         addObject(new blueChanger("BLUE"), 100, 410);
