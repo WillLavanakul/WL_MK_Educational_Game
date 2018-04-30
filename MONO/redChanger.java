@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class redChanger extends Actor
 {
-    public redChanger(String text){
+    public redChanger(String text){ //creates the green circle that hides/shows rectangles of that color
         GreenfootImage img = new GreenfootImage(30, 30);
         img.setColor(Color.RED);
         img.fillOval(0, 0, 30, 30);

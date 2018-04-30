@@ -13,7 +13,7 @@ public class Platform extends Actor
      * Act - do whatever the Platform wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Platform(int pHeight, int pWidth){
+    public Platform(int pHeight, int pWidth){//platform class used for the title screen 
         height = pHeight;
         width = pWidth;
     }

@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class MyWorld extends World
 {
-    
+    //creates character for play and world objects
     Character char1 = new Character();
     titleCharacter titleChar = new titleCharacter();
     private int level = 1;
@@ -21,7 +21,7 @@ public class MyWorld extends World
     
     public void act(){
         if (level < 3 && "space".equals(Greenfoot.getKey())){
-            switch (level) {
+            switch (level) { //spacebar is used to get from title to instructions then level
                 case 1: instructions();
                         break;
                 case 2: level1();
@@ -32,7 +32,7 @@ public class MyWorld extends World
     }
     
     public void nextLevel(){
-        switch (level) {
+        switch (level) { //switch-case statement that tracks the level the user is on 
                 case 3: level2();
                         level++;
                         break;
@@ -50,7 +50,7 @@ public class MyWorld extends World
             }
     }
     
-    public void title(){
+    public void title(){ //sets objects and background for the title screen 
         level = 1;
         setBackground("title.png");
         addObject((titlePlatform), 400, 560);
@@ -58,13 +58,13 @@ public class MyWorld extends World
         addObject(titleChar, 10, 500);
     }
     
-    public void instructions(){
+    public void instructions(){ //sets objects and background for the instructions screen
         removeObject(titleChar);
         level = 2;
         setBackground("instructions.png");
     }
     
-    public void level1(){
+    public void level1(){ //sets objects and background for level 1
         removeObjects(getObjects(null));
         setBackground("black.png");
         addObject(new Character(), 10, 0);
@@ -88,7 +88,7 @@ public class MyWorld extends World
         
     }
     
-    public void level2(){
+    public void level2(){ //sets objects and background for level 2 
         removeObjects(getObjects(null));
         addObject(new Character(), 20, 0);
         addObject(new BluePlatform(600, 30), 300, 100);
@@ -107,7 +107,7 @@ public class MyWorld extends World
         addObject(new triangle(), 100, 525);
     }
     
-    public void level3(){
+    public void level3(){ //sets objects and background for level 3
         removeObjects(getObjects(null));
         addObject(new Character(), 20, 0);
         
@@ -136,7 +136,7 @@ public class MyWorld extends World
     }
     
     
-    public void level4(){
+    public void level4(){ //sets objects and background for level 4
         removeObjects(getObjects(null));
         addObject(new Character(), 20, 0);
         
@@ -167,7 +167,7 @@ public class MyWorld extends World
         
     }
     
-    public void level5(){
+    public void level5(){ //sets objects and background for level 5
         //removes objects of previous level
         removeObjects(getObjects(null));
         removeObject(titlePlatform);
@@ -201,43 +201,43 @@ public class MyWorld extends World
     }
     
     
-    public Character getCharacter(){
+    public Character getCharacter(){//getter method that returns the character object
         return char1;
     }
     
-    public void hideGreenPlatform(){
+    public void hideGreenPlatform(){ //hides the green platform by setting transparency to 0
         for (Object obj : getObjects(GreenPlatform.class)){
             GreenPlatform p = (GreenPlatform) obj;
             p.hide();
         }
     }
-    public void showGreenPlatform(){
+    public void showGreenPlatform(){//shows the green platform by setting transparency to 255
         for (Object obj : getObjects(GreenPlatform.class)){
             GreenPlatform p = (GreenPlatform) obj;
             p.show();
         }
     }
     
-    public void hideRedPlatform(){
+    public void hideRedPlatform(){//hides the red platform by setting transparency to 0
         for (Object obj : getObjects(RedPlatform.class)){
             RedPlatform p = (RedPlatform) obj;
             p.hide();
         }
     }
-    public void showRedPlatform(){
+    public void showRedPlatform(){//shows the red platform by setting transparency to 255
         for (Object obj : getObjects(RedPlatform.class)){
             RedPlatform p = (RedPlatform) obj;
             p.show();
         }
     }
     
-    public void hideBluePlatform(){
+    public void hideBluePlatform(){//hides the blue platform by setting transparency to 0
         for (Object obj : getObjects(BluePlatform.class)){
             BluePlatform p = (BluePlatform) obj;
             p.hide();
         }
     }
-    public void showBluePlatform(){
+    public void showBluePlatform(){//shows the blue platform by setting transparency to 255
         for (Object obj : getObjects(BluePlatform.class)){
             BluePlatform p = (BluePlatform) obj;
             p.show();

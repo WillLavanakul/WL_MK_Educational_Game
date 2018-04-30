@@ -20,8 +20,8 @@ public class Character extends Actor
     private GreenfootImage lboystanding = new GreenfootImage("lboystanding.png");
     private int timer = 0;
     private int level = 1;
-    
-    public void act() 
+    //class variables
+    public void act() //list of commands used to control the sprite
     {
         animationCount++;
         checkChange();
@@ -70,7 +70,7 @@ public class Character extends Actor
         }
     }
     
-    public void onBottom(){
+    public void onBottom(){//resets level if the character falls to the bottom of the screen
         if (getY() >= 590){
             setLocation(10, 0);
         }
@@ -139,7 +139,7 @@ public class Character extends Actor
         setLocation(getX(), getY() + vSpeed);
     }
     
-    public boolean onGround()
+    public boolean onGround()//checks to see if the character is on the ground, otherwise they fall. 
     {
         int spriteHeight = getImage().getHeight();
         int lookForGround = (int)(spriteHeight/2) + 5;
@@ -153,7 +153,7 @@ public class Character extends Actor
         }
     }
     
-    public void checkFall()
+    public void checkFall()//sets gravity constant if the character is mid-air
     {
         int spriteHeight = getImage().getHeight();
         int lookForGround = (int)(spriteHeight/2) + 5;
@@ -170,7 +170,7 @@ public class Character extends Actor
         }
     }
     
-    public void endTimer(){
+    public void endTimer(){//if the character is standing on the triangle for 3 seconds, then the level is switched
         timer++;
         if(timer == 180){
            ((MyWorld)getWorld()).nextLevel();

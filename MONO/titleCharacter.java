@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class titleCharacter extends Actor
 {
-    private int vSpeed = 0;
+    private int vSpeed = 0; //initial class variables 
     private Class color = BluePlatform.class;
     private String strColor = "Blue";
     private int animationCount = 0;
@@ -17,14 +17,14 @@ public class titleCharacter extends Actor
     private GreenfootImage rboy2 = new GreenfootImage("rboy2.png");
     private GreenfootImage rboystanding = new GreenfootImage("rboystanding.png");
     
-    public titleCharacter(){
+    public titleCharacter(){ //sets the size of the title character  
         rboy1.scale(50, 82);
         rboy2.scale(50, 82);
         rboystanding.scale(50, 82);
     }
 
     
-    public void act() 
+    public void act()  //a list of all the methods used to control the sprite
     {
         animationCount++;
         jumpCount++;
@@ -42,13 +42,13 @@ public class titleCharacter extends Actor
     }
     
 
-    public void onRight(){
+    public void onRight(){ //resets level if the character runs off the right side of the screen 
         if (getX() >= 790){
             setLocation(0, getY());
         }
     }
     
-    public void rightAnimation(){
+    public void rightAnimation(){//sets the animation for the character when moving 
         if(animationCount == 3){
             setImage(rboy1);
         }
@@ -63,7 +63,7 @@ public class titleCharacter extends Actor
         }
     }
     
-    public int checkChange(){
+    public int checkChange(){//if character interacts with the color changers, then the rectangles will change to the respective color that was touched
         if(isTouching(blueChanger.class)){
             color = BluePlatform.class;
             MyWorld myWorld = (MyWorld) getWorld();
@@ -89,29 +89,29 @@ public class titleCharacter extends Actor
         return 0;
     }
     
-    public void setColor(Class c){
+    public void setColor(Class c){ //mutator for that sets the color 
         color = c;
     }
     
-    public Class getColor(){
+    public Class getColor(){//getter for the color class 
         return color;
     }
     
-    public void setStrColor(String c){
+    public void setStrColor(String c){//sets the string color for the color changers (circles)
         strColor = c;
     }
     
-    public String getStrColor(){
+    public String getStrColor(){//returns the string color for the color changers (circles)
         return strColor;
     }
     
-    public void fall()
+    public void fall() //sets the gravity constant in our game that returns our character to the ground if spacebar is used to jump
     {
         vSpeed++;
         setLocation(getX(), getY() + vSpeed);
     }
     
-    public boolean onGround()
+    public boolean onGround() //returns true if the character is on the ground, false otherwise.  does so by using character height in relation to rectangle height.
     {
         int spriteHeight = getImage().getHeight();
         int lookForGround = (int)(spriteHeight/2) + 5;
@@ -125,7 +125,7 @@ public class titleCharacter extends Actor
         }
     }
     
-    public void checkFall()
+    public void checkFall() //brings character to the ground if they are mid-air
     {
         if(onGround()){
             vSpeed = 0;
